@@ -36,4 +36,4 @@ No se requieren requisitos previos, ya que la calculadora está construida con t
 1. Clona o descarga este repositorio en tu computadora.
 
    ```bash
-   git clone https://github.com/tu-usuario/calculadora-online.git
+   git clone https://github.com/yormandiaz/calculadora-online.git
