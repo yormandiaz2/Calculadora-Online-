@@ -1,0 +1,9 @@
+body,html{font-family: Arial, Helvetica, sans-serif;
+    height: 100%;
+    width: 100vw;
+    display:flex;
+justify-content: center;
+align-items: center;
+background: url(FondoWebYD.jpg) center,center;
+background-size: cover;
+}

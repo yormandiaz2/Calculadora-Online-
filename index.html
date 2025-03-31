@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Online - Yorman Díaz</title><link rel="stylesheet" href="">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+        }
+        .calculator {
+            background-color: #2c3e50;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            width: 320px;
+            padding: 20px;
+        }
+        .display {
+            background-color: #34495e;
+            color: #ecf0f1;
+            font-size: 2em;
+            height: 60px;
+            text-align: right;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            border: none;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+        .button {
+            background-color: #16a085;
+            color: white;
+            font-size: 1.5em;
+            padding: 20px;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            box-sizing: border-box;
+        }
+        .button:hover {
+            background-color: #1abc9c;
+        }
+        .button:active {
+            background-color: #16a085;
+        }
+        .button.clear {
+            background-color: #e74c3c;
+        }
+        .button.clear:hover {
+            background-color: #c0392b;
+        }
+        .button.equal {
+            background-color: #2980b9;
+            grid-column: span 2;
+        }
+        .button.equal:hover {
+            background-color: #3498db;
+        }
+        .button.operation {
+            background-color: #f39c12;
+        }
+        .button.operation:hover {
+            background-color: #e67e22;
+        }
+        footer {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 0.9em;
+            color: #7f8c8d;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="calculator">
+        <h2 style="text-align: center; color: #ecf0f1;">Calculadora Online</h2>
+        <input id="display" class="display" type="text" readonly />
+        
+        <div class="buttons">
+            <button class="button clear" onclick="clearDisplay()">C</button>
+            <button class="button operation" onclick="appendToDisplay('/')">/</button>
+            <button class="button operation" onclick="appendToDisplay('*')">*</button>
+            <button class="button operation" onclick="appendToDisplay('-')">-</button>
+
+            <button class="button" onclick="appendToDisplay('7')">7</button>
+            <button class="button" onclick="appendToDisplay('8')">8</button>
+            <button class="button" onclick="appendToDisplay('9')">9</button>
+            <button class="button operation" onclick="appendToDisplay('+')">+</button>
+
+            <button class="button" onclick="appendToDisplay('4')">4</button>
+            <button class="button" onclick="appendToDisplay('5')">5</button>
+            <button class="button" onclick="appendToDisplay('6')">6</button>
+            <button class="button" onclick="appendToDisplay('.')">.</button>
+
+            <button class="button" onclick="appendToDisplay('1')">1</button>
+            <button class="button" onclick="appendToDisplay('2')">2</button>
+            <button class="button" onclick="appendToDisplay('3')">3</button>
+            <button class="button equal" onclick="calculate()">=</button>
+
+            <button class="button" onclick="appendToDisplay('0')">0</button>
+            <button class="button" onclick="appendToDisplay('%')">%</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Yorman Díaz. Todos los derechos reservados.</p>
+        <p>Contacto: <a href="mailto:yormanamaya2019@gmail.com" style="color: #16a085;">yormanamaya2019@gmail.com</a></p>
+    </footer>
+
+    <script>
+        // Muestra el texto en la pantalla
+        function appendToDisplay(value) {
+            document.getElementById('display').value += value;
+        }
+
+        // Borra el contenido de la pantalla
+        function clearDisplay() {
+            document.getElementById('display').value = '';
+        }
+
+        // Calcula el resultado
+        function calculate() {
+            try {
+                const display = document.getElementById('display');
+                display.value = eval(display.value);
+            } catch (e) {
+                document.getElementById('display').value = 'Error';
+            }
+        }
+    </script>
+
+</body>
+</html>
